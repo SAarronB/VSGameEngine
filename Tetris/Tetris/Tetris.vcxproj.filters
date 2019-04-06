@@ -13,18 +13,56 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\engineController">
+      <UniqueIdentifier>{d1baa318-dc57-43e4-8d44-6e77d3ef3a15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\engineView">
+      <UniqueIdentifier>{e5277924-31a9-4d43-b7b0-d9c00c51ada6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\engineModel">
+      <UniqueIdentifier>{70c18472-6bae-4f82-ace9-3752294c1250}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine">
+      <UniqueIdentifier>{7139ebc3-14fd-4846-b35a-6f4d47c755b4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="engineController.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engineFrame.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="enginePanel.h">
+      <Filter>Header Files\Engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tetris.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="engineController.cpp">
+      <Filter>Source Files\engineController</Filter>
     </ClCompile>
+    <ClCompile Include="enginePanel.cpp">
+      <Filter>Source Files\engineView</Filter>
+    </ClCompile>
+    <ClCompile Include="engineFrame.cpp">
+      <Filter>Source Files\engineView</Filter>
+    </ClCompile>
+    <ClCompile Include="Tetris.cpp">
+      <Filter>Source Files\engineModel</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Tetris.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

@@ -1,7 +1,9 @@
 // Tetris.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
 
 #include "pch.h"
+//#include "engineController.cpp"
+//#include "enginePanel.cpp"
+//#include "engineFrame.cpp"
 #include <iostream>
 using namespace std;
 
@@ -36,7 +38,15 @@ bool CheckFit(int Tetromino, int Rotaion, int xPos, int yPos) {
 			int posIndex = Rotate(a, b, Rotaion);
 
 			//Get index into field
-			int fiIndex = (xPos + b) * mapWidth + (xPos + a);
+			int fiIndex = (yPos + b) * mapWidth + (xPos + a);
+
+			if (xPos + a >= 0 && xPos + a < mapHeight) {
+				if (yPos + b >= 0 && yPos + b < mapHeight) {
+					if (tetromino[Tetromino][posIndex] == L'X' && pMap[fiIndex] != 0) {
+						return false;//fails on first Hit
+					}
+				}
+			}
 		}
 	}
 
@@ -118,18 +128,34 @@ int main() {
 
 		//Game Logic =======================================
 
+		bool gameOver = false;
+
+		int currentPiece = 1;
+		int currentRotation = 0;
+		int currentX = mapWidth / 2;
+		int currentY = 0;
+
+		while (!gameOver){}
+
 		//Render OutPut=====================================
 
-
-
-		//Draw Field
+		//Draw Field========================================
 		for (int x = 0; x < mapWidth; x++) {
 			for (int y = 0; y < mapHeight; y++)
 				//			Setting out put depending on V depending on the value of V
 				screen[(y + 2) * screenWidth + (x + 2)] = L" ABCDEFG=#"[pMap[y * mapWidth + x]];
 		}
 
-		//Display Frame (Screen Buffer Array)
+		//Draw Current Piece===============================
+		//Iterats over all the cells in tetromino
+		for (int a = 0; a < mapWidth; a++) {
+			for (int b = 0; b < 4; b++) {
+				//gets piece______________ finds index that is rotated__if X__________________________ Draw to screen______________________________________________A
+				if (tetromino[currentPiece][Rotate(a, b, currentRotation)] == L'X') screen[(currentY + b + 2) * screenWidth + (currentX + a + 2)] = currentPiece + 65;
+			}
+		}
+
+		//Display Frame (Screen Buffer Array)==============
 		WriteConsoleOutputCharacter(hConsole, screen, screenWidth * screenHeight, { 0,0 }, &dwByTesWriteen);
 	}
 
